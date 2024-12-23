@@ -16,3 +16,4 @@ tomcatwas/webapps/member/deleteMember.jsp
 tomcatwas/webapps/member/processAddMember.jsp
 tomcatwas/webapps/member/processLoginMember.jsp
 tomcatwas/webapps/member/processUpdateMember.jsp
+nginxweb/default.conf
