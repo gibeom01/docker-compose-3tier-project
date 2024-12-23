@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mariadb:10.5
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pratice_board
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword 
+    volumes:
+      - mysql_data:/var/lib/mysql 
+      - ./createDB.sql:/docker-entrypoint-initdb.d/createDB.sql 
+    ports:
+      - "3306:3306"  
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]  
+      interval: 30s
+      retries: 3
+      start_period: 30s
+      timeout: 10s
+    networks:
+      - backend
+
+  tomcatwas:
+    build:
+      context: ~/tomcatwas
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+
+  nginxweb:
+    build:
+      context: ~/nginxweb
+    ports:
+      - "80:80"
+    networks:
+      - backend
+
+volumes:
+  mysql_data:  # Volume to persist MySQL data
+
+networks:
+  backend:
+    driver: bridge  # Ensure containers use the same network for communication
