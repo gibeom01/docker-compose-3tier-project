@@ -1,16 +1,17 @@
+<%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<head>charset="UTF-8">
-<meta charset="UTF-8">이버 테스트</title>
-<title>M
+<meta charset="UTF-8">
+<title>MySQL 연결 드라이버 테스트</title>
 </head>
-<body>1>MySQL 연결 드라이버 테스트</h1>
+<body>
+    <h1>MySQL 연결 드라이버 테스트</h1>
     <%
-        String jdbcUrl = "jdbc:mariadb://52.78.206.219:3306/pratice_board";
+        String jdbcUrl = "jdbc:mariadb://43.203.126.125:3306/pratice_board";
         String dbId = "root";
         String dbPwd = "root";
 
